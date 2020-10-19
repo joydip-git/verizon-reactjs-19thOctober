@@ -9,5 +9,5 @@ function person(name, age, id) {
 }
 
 var anilObjRef = new person('anil', 31, 1);
-console.log(anilObjRef)
+console.log(anilObjRef.__proto__)
 
