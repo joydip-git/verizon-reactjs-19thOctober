@@ -8,3 +8,9 @@ c. modules in JS
 3. create react app without tool
 4. create react app with the help of creat-react-app tool
 5. react concepts
+
+https://medium.com/@happymishra66/execution-context-in-javascript-319dd72e8e2c
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
