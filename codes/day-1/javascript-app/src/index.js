@@ -1,28 +1,55 @@
-function person(name) {
-    this.name = name;
+class Person {
+    name;
+    age;
+    //static data;
+    constructor(age, name = null) {
+        this.name = name;
+        this.age = age;
+    }
+    static test() {
+        console.log('test')
+    }
+    print() {
+        return `Name:${this.name}, 
+        Age:${this.age}`;
+    }
+    get Name() {
+        return this.name;
+    }
+    set Name(value) {
+        this.name = value;
+    }
+    get Age() {
+        return this.age;
+    }
+    set Age(age) {
+        this.age = age;
+    }
 }
-//quite same
-// var person = function (name) {
-//     this.name = name;
-// }
+//Person.test(100)
+//console.log(Person.data)
+const anil = new Person(30);
 
-//for person function there is an object created by JS runtime
-//known as prototype object of peeson function
-//created for inheritance purpose
-//you can acccess the object by using 'prototype' property of the function (the function name is practically a variable)
-console.log(person.prototype)
-/**
- * person.prototype = {
- * constructor: person,
- * __proto__:
- * }
- */
+// anil.Name = 'anil'
+// anil.Age = 30;
+// console.log(anil.Name)
+//console.log(anil.Age)
+console.log(anil.print())
 
-//__proto__ is a property part of every JS object whicbh holds a reference to  the linked object.
-//such as person.prototype is an object, which has __proto__ property which links this object to another object
-//function-name.prototype
-//anyobject.__proto__
-var joy = {
-    //__proto__:
-    name: 'joy'
+
+const add = (a, b, c) => (a + b + c);
+const subtract = (a, b) => (a - b);
+
+const calculate = (operation, ...arg) => {
+    operation()
 }
+calculate(add, 10, 20, 30);
+calculate(subtract, 30, 40)
+
+const design = `<p style='background-color:lime'>
+                    <span>
+                    ${add(12, 13, 14)}
+                    </span>
+               </p>`;
+//console.log(design)
+document.getElementById('app').innerHTML = design;

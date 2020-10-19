@@ -1,6 +1,8 @@
 1. Pre-React:
 a. JS - prototype
-b. new features in ES and JS
+b. new features in ES and JS:
+	let, const, arrow operator, [class, extends, super, static, get and set] keywords, spread operator, object destructuring, string template (templated string), rest parameter
+c. modules in JS
 
 2. introduction to react js
 3. create react app without tool
