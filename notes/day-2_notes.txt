@@ -24,3 +24,19 @@ Node JS:
 a runtime environment --> v8 engine
 server side framework
 
+React JS:
+library to create client-side application
+
+Angular:
+1. component
+2. Pipe
+3. directive
+4. service
+5. DI
+etc.
+
+
+React applictaion:
+a. React packages:
+   react, react-dom
+

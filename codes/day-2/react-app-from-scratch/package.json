@@ -1,0 +1,26 @@
+{
+  "name": "react-app-from-scratch",
+  "version": "1.0.0",
+  "description": "simple react app without any tool",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joydip-git/verizon-reactjs-19thOctober.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "joydip",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joydip-git/verizon-reactjs-19thOctober/issues"
+  },
+  "homepage": "https://github.com/joydip-git/verizon-reactjs-19thOctober#readme",
+  "dependencies": {
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  }
+}
