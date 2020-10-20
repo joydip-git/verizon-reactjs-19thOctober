@@ -3,10 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const webpackConfigObj = {
-    entry: path.resolve(__dirname, './src/index.js'),
+    entry: {
+        main: path.resolve(__dirname, './src/index.js'),
+        app: path.resolve(__dirname, './src/App.js'),
+        welcome: path.resolve(__dirname, './src/Welcome.js'),
+    },
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'bundle.js'
+        filename: '[name].bundle.js'
     },
     devServer: {
         port: 4000,
