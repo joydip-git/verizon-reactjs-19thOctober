@@ -1,1 +1,26 @@
-modules
+modules:
+APIs which exposes the functionalities
+
+module formats:
+a. IIFE (Immediately Invocable Function Expression - IIFY)
+
+({
+	fn:function(){ },
+        fn1:function(){}
+},function(){
+})();
+
+b. Universal Module Definition (UMD)
+c. Asynchronous Module Definition (AMD)
+d. ES6 modules (export, import)
+e. Common JS modules (module.exports, require)
+
+
+module loader:
+a. Require JS
+b. System JS
+
+Node JS: 
+a runtime environment --> v8 engine
+server side framework
+

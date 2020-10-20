@@ -10,3 +10,16 @@ class employee {
         return this.basic + this.da + this.hra;
     }
 }
+const add = (a, b) => (a + b);
+
+// module.exports = {
+//     employeeCls: employee,
+//     addFn: add
+// }
+let exp = module.exports;
+exp["default"] = employee;
+exp.addFn = add;
+
+console.log(module)
+
+//export default 
