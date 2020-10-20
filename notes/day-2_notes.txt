@@ -40,3 +40,26 @@ React applictaion:
 a. React packages:
    react, react-dom
 
+b. traspiler (compiler) packages [code (ES6) => code (older -- ES5/4/3/2...)]
+  1. Core - @babel/core
+
+  2. JS code containing ES6 features (const, let, arrow operator, import, export...)=> ES5/....
+	 - individual ES6 fetaure specific babel plugins 
+	 - preset: array/collection of plugins
+		@babel/preset-env
+
+  3. JSX code for React => JS
+	 - individual React specific plugins
+	 - preset: @babel/preset-react
+
+  4. CLI: @babel/cli
+
+npm i @babel/core @babel/cli @babel/preset-env @babel/preset-react --save-dev
+.\node_modules\.bin\babel src --out-dir build
+
+.babelrc
+
+{
+ "presets":[ "@babel/preset-env",  "@babel/preset-react"]
+}
+
