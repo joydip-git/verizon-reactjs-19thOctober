@@ -54,12 +54,15 @@ b. traspiler (compiler) packages [code (ES6) => code (older -- ES5/4/3/2...)]
 
   4. CLI: @babel/cli
 
-npm i @babel/core @babel/cli @babel/preset-env @babel/preset-react --save-dev
-.\node_modules\.bin\babel src --out-dir build
-
-.babelrc
-
+command to install: npm i @babel/core @babel/cli @babel/preset-env @babel/preset-react --save-dev
+command to run babel: .\node_modules\.bin\babel src --out-dir build
+configuration of babel:
+.babelrc:
 {
  "presets":[ "@babel/preset-env",  "@babel/preset-react"]
 }
+
+c. bundler (webpack)
+1. core webpack: webpack, webpack-cli
+2. loaders: html-loader babel-loader css-loader style-loader file-loader csv-loader xml-loader sass-loader
 
