@@ -72,4 +72,10 @@ mode: production and development
 tool: create-react-app
 
 npm i create-react-app -g
+create-react-app react-first-app
 
+npx create-react-app react-first-app
+
+React:
+a. component
+b. passing data from one to another component (from parent to the nested/child component)
