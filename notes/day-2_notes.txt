@@ -65,4 +65,11 @@ configuration of babel:
 c. bundler (webpack)
 1. core webpack: webpack, webpack-cli
 2. loaders: html-loader babel-loader css-loader style-loader file-loader csv-loader xml-loader sass-loader
+3. plugins: html-webpack-plugin clean-webpack-plugin
+
+mode: production and development
+
+tool: create-react-app
+
+npm i create-react-app -g
 
