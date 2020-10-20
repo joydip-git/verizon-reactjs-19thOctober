@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const webpackConfigObj = {
     entry: path.resolve(__dirname, './src/index.js'),
@@ -7,9 +8,17 @@ const webpackConfigObj = {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js'
     },
+    devServer: {
+        port: 4000,
+        contentBase: path.resolve(__dirname, 'build')
+    },
+    devtool: 'inline-source-map',
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public', 'index.html')
+        }),
+        new CleanWebpackPlugin({
+            cleanStaleWebpackAssets: true
         })
     ],
     module: {
