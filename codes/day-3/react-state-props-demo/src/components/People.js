@@ -37,6 +37,9 @@ export default class People extends React.Component {
         //     }
         // }, () => console.log(this.state))
     }
+    updatePersonHandler = (personId, propertyName, propertyValue) => {
+        
+    }
     render() {
         return (
             <div>
@@ -49,7 +52,11 @@ export default class People extends React.Component {
                 <br />
                 {
                     this.state.listOfPeople.map((p) => {
-                        return <Person personData={p} key={p.id} />
+                        return <Person
+                            personData={p}
+                            key={p.id}
+                            changePerson={this.updatePersonHandler}
+                        />
                     })
                     /**
                     [{p1},{p2},{p3}] => [{PE2},{PE1},{PE3}]

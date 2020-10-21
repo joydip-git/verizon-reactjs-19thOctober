@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 function Person(props) {
-    const { personData } = props;
+    const { personData, changePerson } = props;
     const personStyle = {
         border: '2px solid blue',
         borderRadius: '3px',
@@ -14,19 +14,20 @@ function Person(props) {
             <input type='text' value={personData.id} readOnly />
             <br />
             Name:&nbsp;
-            <input type='text' value={personData.name} />
+            <input type='text' value={personData.name} onChange={(e) => changePerson(personData.id, 'name', e.target.value)} />
             <br />
             Age:&nbsp;
-            <input type='text' value={personData.age} />
+            <input type='text' value={personData.age} onChange={(e) => changePerson(personData.id, 'age', parseInt(e.target.value))} />
             <br />
-            <button>Update Person Data</button>
+            {/* <button onClick>Update Person Data</button> */}
             <br />
         </div>
     )
 }
 
 Person.propTypes = {
-    personData: PropTypes.object.isRequired
+    personData: PropTypes.object.isRequired,
+    changePerson: PropTypes.func.isRequired
 }
 
 export default Person
