@@ -3,10 +3,10 @@ import './App.css';
 import People from '../components/People'
 
 function App() {
-  
+
   return (
     <div className="App">
-     <People />
+      <People data={20} />
     </div>
   );
 }
