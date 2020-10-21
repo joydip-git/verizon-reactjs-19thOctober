@@ -11,27 +11,40 @@ export default class People extends React.Component {
             listOfPeople: personList,
             showOrHide: true
         }
+        //this.countChangeHandler = this.countChangeHandler.bind(this);
     }
+    //Diffing algo
     countChangeHandler = (newCount) => {
+        // console.log(this)
+        // console.log(newCount)
+        //this.state.count = newCount;
         this.setState({
             count: newCount
         }, () => console.log(this.state))
+        // setTimeout(() => {
+        //     console.log(this.state)
+        // }, 1000);
     }
-
     increaseCountHandler = () => {
         this.setState((cs) => {
             return {
                 count: cs.count + 1
             }
         }, () => console.log(this.state))
+        // this.setState((cs, props) => {
+        //     return {
+        //         count: cs.count + props.data + 1
+        //     }
+        // }, () => console.log(this.state))
     }
     updatePersonHandler = (personId, propertyName, propertyValue) => {
-
+       
         const foundPersonIndex = this.state.listOfPeople.findIndex((p) => p.id === personId)
 
         const copyPeopleArr = [...this.state.listOfPeople]
+        //Object.create(this.state.listOfPeople);
         const copyPerson = { ...this.state.listOfPeople[foundPersonIndex] }
-
+       
         copyPerson[propertyName] = propertyValue;
         copyPeopleArr[foundPersonIndex] = copyPerson;
 
@@ -57,8 +70,16 @@ export default class People extends React.Component {
                             changePerson={this.updatePersonHandler}
                         />
                     })
+                    /**
+                    [{p1},{p2},{p3}] => [{PE2},{PE1},{PE3}]
+                     */
+                    /*[1, 2, 3, 4].map((number) => {
+                        return 'Value :' + (number * 5);
+                    })
+                    */
                 }
             </div>
         )
     }
 }
+
