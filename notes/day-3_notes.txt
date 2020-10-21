@@ -10,3 +10,44 @@ npm i prop-types --save
    npm run <key-name> init
 4. after this run flow always using following command
    npm run <key-name>
+
+Lifecycle: about class component instance NOT about react elements
+
+1. creation and mounting:
+   a. constructor called (class component instance created)-->constructor
+   b. ? getDerviedStateFromProps [static]
+   c. rendered (all react elements will be created and placed in VDOM)-->render
+   d. mounted (based on react element correspoding HTML element is created in actual dom)
+	--> componentDidMount: fetch('http://.../personapp/'+this.props.personIdValue)
+
+Parent{
+  state={
+		data:0,
+		name:'',
+                personId:0
+	}
+   updateName=(newName)=>this.setState({name:newName})}
+  render(){
+   return (
+	<A dataValue={this.state.data} personIdValue={this.state.personId}/>
+	<B nameValue={this.state.name} handler={this.updateName}/>
+  )
+ }
+}
+
+2. updation:
+   a. ?(b) getDerviedStateFromProps [static]
+   b. shouldComponentUpdate-->shouldComponentUpdate(latestProps,latestState)
+	return true/false;
+      will decide whether render should be invoked or not
+   c. render()
+   d. ?? getSnapshotBeforeUpdate
+   e. componentDidUpdate
+      fetch('http://.../personapp/'+this.props.personIdValue)
+
+3. destruction:
+    a. componentWillUnmount
+
+4. error:
+    a. ??? getDerivedStateFromError() [static]
+    b. componentDidCatch()
