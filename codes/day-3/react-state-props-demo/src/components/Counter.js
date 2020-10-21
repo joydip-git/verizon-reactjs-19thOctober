@@ -19,23 +19,38 @@ class Counter extends Component {
 //     count: PropTypes.number.isRequired
 // }
 */
-const Counter = (props) => {
+const CounterOriginal = (props, refObjRef) => {
+    const inputRef = React.createRef();
+    const updateCount = () => {
+        // console.log(inputRef.current.value)
+        // inputRef.current.focus()
+        props.changeCounter(parseInt(inputRef.current.value))
+    }
+    // const focusInput = () => {
+    //     inputRef.current.focus();
+    // }
     return (
         <div>
-            Counter Value:&nbsp;
+            Counter Value:&nbsp;{props.count}
+            <br />
+            Enter Value:&nbsp;
             <input
                 type='text'
-                value={props.count}
-                onChange={(e) => props.changeCounter(parseInt(e.target.value))}
-
+                ref={inputRef}
             />
             <br />
-            {/* <button>Update Count</button> */}
+            <button onClick={updateCount}>Update Count</button>
+            <br />
+            Another Input:&nbsp;<input
+                type='text'
+                ref={refObjRef}
+            />
         </div>
     )
 }
-Counter.propTypes = {
+CounterOriginal.propTypes = {
     count: PropTypes.number.isRequired,
     changeCounter: PropTypes.func.isRequired
 }
+const Counter = React.forwardRef(CounterOriginal)
 export default Counter

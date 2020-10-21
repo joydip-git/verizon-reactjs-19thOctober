@@ -1,6 +1,7 @@
 import React from 'react';
 import { personList } from '../data/personList'
 import Counter from './Counter';
+import CounterCls from './CounterCls';
 import Person from './Person';
 
 export default class People extends React.Component {
@@ -9,7 +10,16 @@ export default class People extends React.Component {
         this.state = {
             count: 10,
             listOfPeople: personList,
-            showOrHide: true
+            showOrHide: true,
+            errorMessage: ''
+        }
+        this.inputRef = React.createRef();
+        this.counterClsRef = React.createRef();
+        this.counterRef = React.createRef();
+        this.someRef = null;
+        this.setSomeRef = (elementReference) => {
+            console.log(elementReference)
+            this.someRef = elementReference; 
         }
     }
     countChangeHandler = (newCount) => {
@@ -39,13 +49,39 @@ export default class People extends React.Component {
             listOfPeople: copyPeopleArr
         }, () => console.log(this.state))
     }
+    validateInputHandler = () => {
+        if (this.inputRef.current.value === '') {
+            this.setState({ errorMessage: 'please enter value' })
+        } else {
+            this.setState({ errorMessage: '' })
+        }
+    }
     render() {
         return (
             <div>
+                Refering By Callback:&nbsp;
+                {/* Input:&nbsp;<input type='text' ref={(currentElement) => this.setSomeRef(currentElement)} /> */}
+                Input:&nbsp;<input type='text' ref={this.setSomeRef} />
+                <br />
+                <button onClick={() => { if (this.someRef !== null) this.someRef.focus() }}>Focus By Callback Ref</button>
+                <br />
+                {/* <button onClick={() => this.counterClsRef.current.focusInput()}>Focus Child Input From Parent</button> */}
+                <button onClick={() => this.counterRef.current.focus()}>Focus Child Input From Parent</button>
+                <br />
+                <br />
+                Input:&nbsp;<input type='text' ref={this.inputRef} onChange={this.validateInputHandler} />
+                {
+                    this.state.errorMessage !== '' && (<span>{this.state.errorMessage}</span>)
+                }
+                <br />
+                <button onClick={this.validateInputHandler}>Validate</button>
+                <br />
                 <button onClick={this.increaseCountHandler}>Increase Counter from Parent</button>
                 <br />
                 <br />
-                <Counter count={this.state.count} changeCounter={this.countChangeHandler} />
+                <Counter ref={this.counterRef} count={this.state.count} changeCounter={this.countChangeHandler} />
+                <br />
+                <CounterCls ref={this.counterClsRef} count={this.state.count} changeCounter={this.countChangeHandler} />
                 <br />
                 Person Records:
                 <br />
