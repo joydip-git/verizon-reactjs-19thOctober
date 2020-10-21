@@ -7,20 +7,21 @@ import Person from './Person';
 export default class People extends React.Component {
     constructor() {
         super()
-        this.state = {
-            count: 10,
-            listOfPeople: personList,
-            showOrHide: true,
-            errorMessage: ''
-        }
+
         this.inputRef = React.createRef();
         this.counterClsRef = React.createRef();
         this.counterRef = React.createRef();
         this.someRef = null;
         this.setSomeRef = (elementReference) => {
             console.log(elementReference)
-            this.someRef = elementReference; 
+            this.someRef = elementReference;
         }
+    }
+    state = {
+        count: 10,
+        listOfPeople: personList,
+        showOrHide: true,
+        errorMessage: ''
     }
     countChangeHandler = (newCount) => {
         this.setState({

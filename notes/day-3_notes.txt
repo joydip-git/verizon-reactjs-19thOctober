@@ -1,1 +1,12 @@
 https://pastiebin.com/5f8fe2e140ecf
+
+npm i flow-bin --save-dev
+npm i prop-types --save
+
+1. install flow package
+   npm i flow-bin --save-dev
+2. write a script in package.json file (such as: "<key-name>":"flow")
+3. create flow configuraton file
+   npm run <key-name> init
+4. after this run flow always using following command
+   npm run <key-name>
