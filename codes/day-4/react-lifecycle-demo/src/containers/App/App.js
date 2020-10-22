@@ -50,6 +50,16 @@ class App extends Component {
       }
     }, () => console.log(getPersonList()))
   }
+  updateShowOrHideHandler = () => {
+    this.setState(ps => {
+      return {
+        showOrHide: !ps.showOrHide
+      }
+    })
+  }
+  //componentWillMount
+  //componentWillReceiveProps
+  //componentWillUpdate
   componentDidMount() {
     console.log('[App] mounted')
     //fetch data from restful API server/database
@@ -58,13 +68,7 @@ class App extends Component {
       personList: getPersonList(null)
     })
   }
-  updateShowOrHideHandler = () => {
-    this.setState(ps => {
-      return {
-        showOrHide: !ps.showOrHide
-      }
-    })
-  }
+
   render() {
     console.log('[App] rendered')
     return (
