@@ -21,6 +21,13 @@ export default class PersonRecord extends Component {
         console.log('[PR] getDerviedStateFromProps')
         return null;
     }
+    shouldComponentUpdate(newProps, newState) {
+        console.log('[PR] should component update')
+        if (this.props.person === newProps.person)
+            return false;
+        else
+            return true;
+    }
     componentDidMount() {
         console.log('[PR] mounted')
     }

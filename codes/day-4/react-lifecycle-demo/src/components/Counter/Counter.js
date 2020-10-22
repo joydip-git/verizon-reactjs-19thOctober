@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Counter(props) {
+function CounterOriginal(props) {
     console.log('[Counter] rendered')
     return (
         <div>
@@ -11,10 +11,12 @@ function Counter(props) {
     )
 }
 
-Counter.propTypes = {
+CounterOriginal.propTypes = {
     counterValue: PropTypes.number.isRequired,
     counterHandler: PropTypes.func.isRequired
 }
+
+const Counter = React.memo(CounterOriginal)
 
 export default Counter
 

@@ -1,7 +1,7 @@
 Lifecycle events and corresponding methods:
 1. creation and mounting:
    a. constructor called (class component instance created)-->constructor
-   b. ? getDerviedStateFromProps [static]
+   b. ? getDerivedStateFromProps [static] return a new state object
    c. rendered (all react elements will be created and placed in VDOM)-->render
    d. mounted (based on react element correspoding HTML element is created in actual dom)
 	--> componentDidMount: fetch('http://.../personapp/'+this.props.personIdValue)
@@ -22,7 +22,7 @@ Parent{
 }
 
 2. updation:
-   a. ?(b) getDerviedStateFromProps [static]
+   a. ?(b) getDerivedStateFromProps [static]
    b. shouldComponentUpdate-->shouldComponentUpdate(latestProps,latestState)
 	return true/false;
       will decide whether render should be invoked or not

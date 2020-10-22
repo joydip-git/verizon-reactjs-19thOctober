@@ -1,4 +1,4 @@
-export const personList = [
+let personArray = [
     {
         id: 1,
         name: 'anil',
@@ -14,4 +14,11 @@ export const personList = [
         name: 'joy',
         age: 40
     }
-]
+];
+
+export const getPersonList = (updatedPersonList) => {
+    if (updatedPersonList !== null && updatedPersonList !== undefined) {
+        personArray = updatedPersonList;
+    }
+    return personArray;
+}

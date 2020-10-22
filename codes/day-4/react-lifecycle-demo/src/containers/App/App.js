@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Counter from '../../components/Counter/Counter';
 import PersonDetail from '../../components/PersonDetail/PersonDetail';
 import PersonRecord from '../../components/PersonRecord/PersonRecord';
-import { personList } from '../../data/personList';
+import { getPersonList } from '../../data/personList';
 import './App.css';
 
 class App extends Component {
@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       counter: 0,
       personList: [],
-      selectedPersonId: 0
+      selectedPersonId: 0,
+      showOrHide: true
     }
   }
 
@@ -30,30 +31,49 @@ class App extends Component {
     this.setState({ counter: newCounter })
   }
   updatePersonHandler = (personId, propertyName, propertyValue) => {
+    console.log(personId)
+    console.log(propertyName)
+    console.log(propertyValue)
     const foundPersonIndex = this.state.personList.findIndex(p => p.id === personId);
 
     const copyOfPeople = [...this.state.personList]
     const foundPersonCopy = { ...this.state.personList[foundPersonIndex] }
 
-    foundPersonCopy[propertyName] = propertyValue
+    foundPersonCopy[propertyName] = propertyValue;
     copyOfPeople[foundPersonIndex] = foundPersonCopy;
 
-    this.setState({
-      personList: copyOfPeople
-    })
+
+    this.setState(() => {
+      getPersonList(copyOfPeople);
+      return {
+        personList: copyOfPeople
+      }
+    }, () => console.log(getPersonList()))
   }
   componentDidMount() {
     console.log('[App] mounted')
     //fetch data from restful API server/database
     //make network requests
     this.setState({
-      personList: personList
+      personList: getPersonList(null)
+    })
+  }
+  updateShowOrHideHandler = () => {
+    this.setState(ps => {
+      return {
+        showOrHide: !ps.showOrHide
+      }
     })
   }
   render() {
     console.log('[App] rendered')
     return (
       <div className="App">
+        <button onClick={this.updateShowOrHideHandler}>
+          {
+            this.state.showOrHide ? 'Hide' : 'Show'
+          }
+        </button>
         <Counter counterValue={this.state.counter} counterHandler={this.updateCounterHandler} />
         <br />
         {
@@ -71,7 +91,7 @@ class App extends Component {
         <br />
         <div>
           {
-            this.state.selectedPersonId > 0 && (<PersonDetail personId={this.state.selectedPersonId} updatePerson={this.updatePersonHandler} />)
+            (this.state.selectedPersonId > 0 && this.state.showOrHide) && (<PersonDetail personId={this.state.selectedPersonId} updatePerson={this.updatePersonHandler} />)
           }
         </div>
       </div>
