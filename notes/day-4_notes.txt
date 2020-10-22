@@ -38,6 +38,9 @@ Parent{
     a. ??? getDerivedStateFromError() [static]
     b. componentDidCatch()
 
+To use bootstrap:
+npm i bootstrap --save
+
 Higher Order Components (HOC)
 Render Prop (RP)
 Error Handling
@@ -50,3 +53,6 @@ Redux
 Deployment:
 Docker 
 Azure
+
+
+https://pastiebin.com/5f91599ee3381
