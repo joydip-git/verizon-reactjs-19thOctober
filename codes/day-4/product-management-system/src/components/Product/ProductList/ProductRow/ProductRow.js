@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './ProductRow.css'
 
-function ProductRow({ product }) {
+function ProductRow({ product, deleteHandler }) {
     return (
         <tr>
             <td>
@@ -29,14 +29,15 @@ function ProductRow({ product }) {
                 {product.starRating}
             </td>
             <td>
-                <button className='btn btn-danger'>Delete</button>
+                <button className='btn btn-danger' onClick={() => deleteHandler(product.productId)}>Delete</button>
             </td>
         </tr>
     )
 }
 
 ProductRow.propTypes = {
-    product: PropTypes.object.isRequired
+    product: PropTypes.object.isRequired,
+    deleteHandler: PropTypes.func.isRequired
 }
 
 export default ProductRow

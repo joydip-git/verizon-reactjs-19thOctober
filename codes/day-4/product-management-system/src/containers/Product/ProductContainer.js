@@ -1,12 +1,33 @@
 import React, { Component } from 'react'
 import ProductList from '../../components/Product/ProductList/ProductList'
-import { getProductRecords } from '../../service/productService'
+import { getProductRecords, deleteProductRecordById } from '../../service/productService'
 
 export default class ProductContainer extends Component {
     state = {
         products: [],
         loading: true,
         errorMessage: ''
+    }
+    removeProductHandler = (productId) => {
+        deleteProductRecordById(productId)
+            .then(resp => {
+                if (resp.status === 200) {
+                    let productsCopy = [...this.state.products];
+                    let index = productsCopy.findIndex(p => p.productId === productId);
+                    productsCopy.splice(index, 1);
+                    this.setState({
+                        products: productsCopy,
+                        errorMessage: '',
+                        loading: false
+                    })
+                }
+            })
+            .catch(e => {
+                this.setState({
+                    errorMessage: e.message,
+                    loading: false
+                })
+            })
     }
 
     componentDidMount() {
@@ -41,12 +62,12 @@ export default class ProductContainer extends Component {
             design = (
                 <div className='container'>
                     <div className='panel panel-primary'>
-                        <ProductList products={this.state.products} />
+                        <ProductList products={this.state.products} removeHandler={this.removeProductHandler} />
                     </div>
                 </div>
             )
         }
-        
+
         return design;
     }
 }

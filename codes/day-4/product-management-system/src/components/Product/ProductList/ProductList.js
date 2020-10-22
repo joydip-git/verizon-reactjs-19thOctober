@@ -4,7 +4,7 @@ import ProductTableHeaderRow from './ProductTableHeaderRow/ProductTableHeaderRow
 import ProductRow from './ProductRow/ProductRow'
 import './ProductList.css'
 
-function ProductList({ products }) {
+function ProductList({ products, removeHandler }) {
     return (
         // <React.Fragment>
         <>
@@ -18,7 +18,7 @@ function ProductList({ products }) {
                         <tbody>
                             {
                                 products.map(p => {
-                                    return <ProductRow key={p.id} product={p} />
+                                    return <ProductRow key={p.id} product={p} deleteHandler={removeHandler} />
                                 })
                             }
                         </tbody>
@@ -31,7 +31,8 @@ function ProductList({ products }) {
 }
 
 ProductList.propTypes = {
-    products: PropTypes.array.isRequired
+    products: PropTypes.array.isRequired,
+    removeHandler: PropTypes.func.isRequired
 }
 
 export default ProductList
