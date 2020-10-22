@@ -60,3 +60,20 @@ Azure
 
 
 https://pastiebin.com/5f91599ee3381
+
+
+
+
+react router dom:
+a. BrowserRouter: forceRefresh API
+
+b. MemoryRouter:
+   React Native
+   
+
+c. HashRouter:
+   /#/ 
+
+   HTML5 API: history API: pushState API
+      history.push('google');
+  
