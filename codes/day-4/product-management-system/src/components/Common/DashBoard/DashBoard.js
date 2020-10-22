@@ -1,17 +1,18 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function DashBoard() {
     return (
         <nav className='navbar navbar-default'>
-            <a href='#'>
+            <Link to='/home'>
                 Home
-            </a>
-            <a href='#'>
+            </Link>
+            <Link to='/products'>
                 Products
-            </a>
-            <a href='#'>
+            </Link>
+            <Link to='/product/add'>
                 Add
-            </a>
+            </Link>
         </nav>
     )
 }
