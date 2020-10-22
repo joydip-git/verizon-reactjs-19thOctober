@@ -6,15 +6,18 @@ function ProductRow({ product }) {
     return (
         <tr>
             <td>
-                <div className='imgStyle'>
+                <div className='img-responsive'>
                     <img src={product.imageUrl}
                         alt='NA'
                         title={product.productName}
+                        className='imgStyle'
                     />
                 </div>
             </td>
             <td>
-                {product.productName}
+                <a href='#'>
+                    {product.productName}
+                </a>
             </td>
             <td>
                 {product.productCode}

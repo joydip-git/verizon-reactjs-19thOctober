@@ -40,7 +40,8 @@ Parent{
 
 To use bootstrap:
 npm i bootstrap --save
-npm i prop-types --save
+npm i prop-types --save-dev
+npm i axios --save
 
 Higher Order Components (HOC)
 Render Prop (RP)
