@@ -42,6 +42,8 @@ To use bootstrap:
 npm i bootstrap --save
 npm i prop-types --save-dev
 npm i axios --save
+npm i react-router-dom --save
+//react-router
 
 Higher Order Components (HOC)
 Render Prop (RP)
