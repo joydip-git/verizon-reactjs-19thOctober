@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 function Counter(props) {
+    console.log('[Counter] rendered')
     return (
         <div>
             Counter Value: &nbsp;
