@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Counter from './Counter'
+import ClickCounter from './ClickCounter'
+import HoverCounter from './HoverCounter'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  inputRef = React.createRef()
+  componentDidMount() {
+    this.inputRef.current.focus();
+  }
+
+  // injectToClickCounter = (value, valueHandler) => {
+  //   return <ClickCounter counterValue={value} counterHandlerFn={valueHandler} value={100} ref={this.inputRef} />;
+  // }
+  // injectToHoverCounter = (value, valueHandler) => {
+  //   return <HoverCounter counter={value} counterHandler={valueHandler} data={20} />
+  // }
+  render() {
+    return (
+      <div className="App">
+        {/* <Counter render={this.injectToClickCounter} />
+        <br />
+        <Counter render={this.injectToHoverCounter} /> */}
+        <Counter render={
+          (value, valueHandler) => {
+            return <ClickCounter counterValue={value} counterHandlerFn={valueHandler} value={100} ref={this.inputRef} />
+          }
+        } />
+        <br />
+        <Counter render={
+          (value, valueHandler) => {
+            return <HoverCounter counter={value} counterHandler={valueHandler} data={20} />
+          }
+        } />
+      </div>
+    );
+  }
 }
 
 export default App;
