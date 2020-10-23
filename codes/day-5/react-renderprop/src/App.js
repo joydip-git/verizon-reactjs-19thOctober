@@ -19,6 +19,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <button onClick={() => window.alert('hi')}>Click</button>
+        <br />
+        <br />
         {/* <Counter render={this.injectToClickCounter} />
         <br />
         <Counter render={this.injectToHoverCounter} /> */}
