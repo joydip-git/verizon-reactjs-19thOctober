@@ -10,6 +10,7 @@ export default function ProductRoutes() {
                     return <Route path={route.routePath} key={route.routeId} component={route.componentName} exact />
                 })
             }
+            {/* <Route path='/some' exact render={() => <span>Some</span>} /> */}
         </Switch>
     )
 }
