@@ -1,0 +1,58 @@
+import React, { useState } from 'react';
+import './App.css';
+import ClickCounter from './ClickCounter';
+import useWelcome from './useWelcome';
+
+/*
+const utility = {
+  sayHi: () => {
+    window.alert('hi...')
+  }
+}
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        {this.sayHi()}
+      </div>
+    );
+  }
+}
+Object.assign(App.prototype, utility)
+*/
+function App() {
+  //const [hiFn, byeFn] = useWelcome();
+  const [counterState, setCounterState] = useState({ counter: 0, val: 0 })
+  const [dataState, setDataState] = useState(true);
+
+  const increaseCounterHandler = () => {
+    // setCounterState({
+    //   counter: 20
+    // })
+    setCounterState((ps) => {
+      return {
+        ...ps,
+        counter: ps.counter + 1
+      }
+    })
+    setDataState(ps => {
+      return !ps;
+    })
+  }
+  console.log('[App] rendered')
+  return (
+    <div>
+      {/* {hiFn()}
+      {byeFn()} */}
+      Val:&nbsp;<span>{counterState.val}</span>
+      <br />
+      Counter:&nbsp;<span>{counterState.counter}</span>
+      <br />
+      <button onClick={increaseCounterHandler}>Increase</button>
+      <br />
+      <br />
+      <ClickCounter />
+    </div>
+  )
+}
+export default App;

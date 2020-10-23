@@ -1,47 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import useWelcome from './useWelcome';
+import CountComp from './CountComp';
+import NameComp from './NameComp';
 
-/*
-const utility = {
-  sayHi: () => {
-    window.alert('hi...')
-  }
-}
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        {this.sayHi()}
-      </div>
-    );
-  }
-}
-Object.assign(App.prototype, utility)
-*/
+
 function App() {
-  //const [hiFn, byeFn] = useWelcome();
-  const [counterState, setCounterState] = useState({ counter: 0 })
+  const [nameState, setNameState] = useState('NA');
+  const [countState, setCountState] = useState(0);
+  const [showState, setShowState] = useState(true);
 
-  const increaseCounterHandler = () => {
-    // setCounterState({
-    //   counter: 20
-    // })
-    setCounterState(ps => {
-      return {
-        counter: ps.counter + 1
-      }
-    })
-  }
+  //const inputRef = React.createRef();
+
   console.log('[App] rendered')
+  
   return (
     <div>
-      {/* {hiFn()}
-      {byeFn()} */}
+      <button onClick={() => setShowState(ps => !ps)}>{showState ? 'Hide' : 'Show'}</button>
       <br />
-      Counter:&nbsp;<span>{counterState.counter}</span>
       <br />
-      <button onClick={increaseCounterHandler}>Increase</button>
+      {showState && <NameComp name={nameState} nameHandler={(newName) => setNameState(newName)} />}
+      <br />
+      <br />
+      <CountComp count={countState} countHandler={() => setCountState(ps => ps + 1)} />
     </div>
   )
 }
