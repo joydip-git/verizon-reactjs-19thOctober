@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import withCounter from './withCounter'
 
-function OriginalHoverCounter({ counter, counterHandler }) {
+function OriginalHoverCounter({ counter, counterHandler, data }) {
     return (
         <div>
-            <span>Hover Counter Value:&nbsp;{counter}</span>
+            <span>Hover Counter Value:&nbsp;{counter} and Data:{data}</span>
             <br />
             <div onMouseOver={counterHandler}>Increase Counter By Hovering</div>
         </div>

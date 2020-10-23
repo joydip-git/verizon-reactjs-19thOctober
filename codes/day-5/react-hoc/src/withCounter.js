@@ -15,8 +15,9 @@ const withCounter = (OriginalComponent, initialState) => {
             })
         }
         render() {
+            console.log(this.props)
             return <OriginalComponent counter={this.state.counter}
-                counterHandler={this.increaseCounter} />
+                counterHandler={this.increaseCounter} {...this.props} />
         }
         /**
          * render() {

@@ -9,10 +9,10 @@ function App() {
   return (
     <div className="App">
       {/* <Counter /> */}
-      <ClickCounter />
-      <br/>
-      <br/>
-      <HoverCounter />
+      <ClickCounter value={10} />
+      <br />
+      <br />
+      <HoverCounter data={20} />
       {/* <withCounter>
         <OriginalClickCounter/>
 
