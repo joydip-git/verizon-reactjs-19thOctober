@@ -1,5 +1,6 @@
 import React from 'react'
 import withCounter from './withCounter'
+import withMemory from './withMemory';
 
 function OriginalClickCounter({ counter, counterHandler }) {
     return (
@@ -12,4 +13,5 @@ function OriginalClickCounter({ counter, counterHandler }) {
 }
 
 const ClickCounter = withCounter(OriginalClickCounter);
+//export default withMemory(ClickCounter)
 export default ClickCounter;

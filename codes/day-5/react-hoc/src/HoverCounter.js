@@ -11,7 +11,9 @@ function OriginalHoverCounter({ counter, counterHandler }) {
     )
 }
 
+//const WithHoverCounter = withCounter(OriginalHoverCounter);
+//const HoverCounter = React.memo(WithHoverCounter);
 const HoverCounter = withCounter(OriginalHoverCounter);
 export default HoverCounter;
 
-React.forwardRef(OriginalHoverCounter)
+
