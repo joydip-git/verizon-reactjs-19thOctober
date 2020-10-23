@@ -11,5 +11,10 @@ https://pastiebin.com/5f9260da1f9d8
 3. class, this
 
 Redux
-React Redux
+Redux async
 React Redux async
+
+npm i redux --save
+npm i redux-logger --save
+npm i redux-thunk --save
+npm i react-redux --save

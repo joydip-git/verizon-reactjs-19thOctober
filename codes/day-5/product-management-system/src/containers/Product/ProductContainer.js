@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import ProductList from '../../components/Product/ProductList/ProductList'
-import { getProductRecords, deleteProductRecordById } from '../../service/productService'
+//import { deleteProductRecordById } from '../../service/productService'
+import { connect } from 'react-redux'
+import { getProductsAsyncCallbackCreator } from '../../redux/productAsyncOperation'
 
-export default class ProductContainer extends Component {
-    state = {
-        products: [],
-        loading: true,
-        errorMessage: ''
-    }
+class ProductContainer extends Component {
+
     removeProductHandler = (productId) => {
+        /*
         deleteProductRecordById(productId)
             .then(resp => {
                 if (resp.status === 200) {
@@ -28,30 +27,16 @@ export default class ProductContainer extends Component {
                     loading: false
                 })
             })
+            */
     }
 
     componentDidMount() {
-        getProductRecords()
-            .then(resp => {
-                let data = resp.data;
-                this.setState({
-                    products: data,
-                    loading: false,
-                    errorMessage: ''
-                })
-            })
-            .catch(e => {
-                this.setState({
-                    products: [],
-                    errorMessage: e.message,
-                    loading: false
-                })
-            })
+        this.props.getProducts()
     }
 
     render() {
         let design = null;
-        const { errorMessage, products, loading } = this.state;
+        const { errorMessage, products, loading } = this.props;
         if (loading) {
             design = <span>Loading...</span>
         } else if (errorMessage !== '') {
@@ -62,7 +47,7 @@ export default class ProductContainer extends Component {
             design = (
                 <div className='container'>
                     <div className='panel panel-primary'>
-                        <ProductList products={this.state.products} removeHandler={this.removeProductHandler} />
+                        <ProductList products={products} removeHandler={this.removeProductHandler} />
                     </div>
                 </div>
             )
@@ -71,3 +56,27 @@ export default class ProductContainer extends Component {
         return design;
     }
 }
+//1. define props
+const mapStateToProps = (state) => {
+    const propertiesForState = {
+        products: state.allProductsState.products,
+        loading: state.allProductsState.loading,
+        errorMessage: state.allProductsState.errorMessage
+    }
+    return propertiesForState;
+}
+
+const mapDispatcherToProps = (dispatch) => {
+    const propertyForDispatcher = {
+        getProducts: () => {
+            const callback = getProductsAsyncCallbackCreator();
+            dispatch(callback)
+        }
+    }
+    return propertyForDispatcher;
+}
+
+// const connector = connect(mapStateToProps, mapDispatcherToProps)
+// export default connector(ProductContainer);
+
+export default connect(mapStateToProps, mapDispatcherToProps)(ProductContainer)
