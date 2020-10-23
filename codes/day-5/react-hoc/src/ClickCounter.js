@@ -2,7 +2,7 @@ import React from 'react'
 import withCounter from './withCounter'
 import withMemory from './withMemory';
 
-function ClickCounter({ counter, counterHandler, value }) {
+function ClickCounter({ counter, counterHandler, value }, ref) {
     return (
         <div>
 
@@ -16,4 +16,5 @@ function ClickCounter({ counter, counterHandler, value }) {
 //const ClickCounter = withCounter(OriginalClickCounter, 10);
 //export default withMemory(ClickCounter)
 //export default ClickCounter;
+//export default React.forwardRef(withCounter(ClickCounter, 10));
 export default withCounter(ClickCounter, 10);
