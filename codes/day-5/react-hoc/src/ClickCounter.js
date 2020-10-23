@@ -12,6 +12,6 @@ function OriginalClickCounter({ counter, counterHandler }) {
     )
 }
 
-const ClickCounter = withCounter(OriginalClickCounter);
+const ClickCounter = withCounter(OriginalClickCounter, 10);
 //export default withMemory(ClickCounter)
 export default ClickCounter;

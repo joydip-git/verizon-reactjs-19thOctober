@@ -3,6 +3,7 @@ import './App.css';
 import ClickCounter from './ClickCounter';
 import Counter from './Counter';
 import HoverCounter from './HoverCounter';
+import withCounter from './withCounter';
 
 function App() {
   return (
@@ -12,6 +13,10 @@ function App() {
       <br/>
       <br/>
       <HoverCounter />
+      {/* <withCounter>
+        <OriginalClickCounter/>
+
+      </withCounter> */}
     </div>
   );
 }
