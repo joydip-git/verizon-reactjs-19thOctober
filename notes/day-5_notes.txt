@@ -9,3 +9,7 @@ https://pastiebin.com/5f9260da1f9d8
    a. componentDidUpdate
 
 3. class, this
+
+Redux
+React Redux
+React Redux async
